@@ -1,0 +1,26 @@
+device:
+  ver: 'v1.4.2'
+  hardware:
+    prefix-name: null
+    type: 'undefined'
+    boardname: 'undefined'
+    product-name: 'undefined'
+
+  system:
+  network:
+    interface:
+      - $template: true
+        iftype:
+          key: iftype
+          type: string
+          default: ethernet
+          spec:
+            show: false
+  wireless:
+    radio:
+      -
+        vap:
+
+
+  app:
+  iot:

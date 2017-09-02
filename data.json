@@ -1,0 +1,2855 @@
+{
+  "xml-ver": "v1.4.2",
+  "hardware": {
+    "prefix-name": "NatShell",
+    "type": "AP",
+    "boardname": "ns-8-pw3",
+    "product-name": "ns-8-pw3",
+    "firmware": "V4.6.0"
+  },
+  "wireless": {
+    "scenario": "ptmp",
+    "country": {
+      "key": "countrycode",
+      "default": "US"
+    },
+    "bandsteering": {
+      "key": "bandsteering",
+      "type": "object",
+      "default": {
+        "enabled": {
+          "default": false,
+          "type": "boolean",
+          "key": "enabled"
+        },
+        "mode": {
+          "key": "mode",
+          "type": "string",
+          "list": [
+            "balanced",
+            "prefer5g"
+          ],
+          "default": "balanced"
+        }
+      },
+      "spec": {
+        "show": true,
+        "required": true
+      }
+    },
+    "radio": [
+      {
+        "antennacount": {
+          "key": "antennacount",
+          "default": 2,
+          "spec": {
+            "show": true
+          }
+        },
+        "ifname": {
+          "key": "ifname",
+          "default": "wifi0",
+          "spec": {
+            "show": true
+          }
+        },
+        "ifindex": {
+          "key": "ifindex",
+          "default": 0,
+          "spec": {
+            "show": true
+          }
+        },
+        "enabled": {
+          "key": "enabled",
+          "default": true,
+          "spec": {
+            "show": true
+          }
+        },
+        "maxssid": {
+          "key": "maxssid",
+          "default": 8,
+          "spec": {
+            "show": true
+          }
+        },
+        "frequence": {
+          "key": "frequence",
+          "default": "2.4G",
+          "spec": {
+            "show": true
+          }
+        },
+        "ieeemode": {
+          "key": "ieeemode",
+          "list": [
+            "802.11n",
+            "802.11bgn"
+          ],
+          "default": "802.11n",
+          "spec": {
+            "show": true
+          }
+        },
+        "channel": {
+          "key": "channel",
+          "default": 10,
+          "spec": {
+            "show": true
+          }
+        },
+        "htmode": {
+          "key": "htmode",
+          "list": [
+            "20",
+            "40",
+            "80"
+          ],
+          "default": "20",
+          "spec": {
+            "show": true
+          }
+        },
+        "antennagain": {
+          "key": "antennagain",
+          "default": 9,
+          "spec": {
+            "show": true
+          }
+        },
+        "txpower": {
+          "key": "txpower",
+          "default": 20,
+          "type": "number",
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 1,
+              "max": 26
+            }
+          }
+        },
+        "board_power": {
+          "key": "board_power",
+          "default": 20,
+          "type": "number",
+          "spec": {
+            "show": false,
+            "required": true,
+            "range": {
+              "min": 1,
+              "max": 26
+            }
+          }
+        },
+        "advance": {
+          "key": "advance",
+          "visible": false,
+          "default": true,
+          "spec": {
+            "show": true
+          }
+        },
+        "fragmentation": {
+          "key": "fragmentation",
+          "type": "object",
+          "default": {
+            "enabled": false,
+            "size": {
+              "key": "size",
+              "range": {
+                "min": 1,
+                "max": 2346
+              },
+              "default": 256
+            }
+          },
+          "spec": {
+            "show": true,
+            "required": true
+          }
+        },
+        "rts": {
+          "key": "rts",
+          "type": "object",
+          "default": {
+            "enabled": false,
+            "size": {
+              "key": "size",
+              "range": {
+                "min": 1,
+                "max": 2346
+              },
+              "default": 256
+            }
+          },
+          "spec": {
+            "show": true,
+            "required": true
+          }
+        },
+        "acktimeout": {
+          "key": "acktimeout",
+          "default": 100,
+          "type": "number",
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 64,
+              "max": 512
+            }
+          }
+        },
+        "atpc": {
+          "key": "atpc",
+          "default": true,
+          "spec": {
+            "show": true
+          }
+        },
+        "bawinsize": {
+          "key": "bawinsize",
+          "default": 10,
+          "type": "number",
+          "spec": {
+            "show": true,
+            "range": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        },
+        "prohibited": {
+          "key": "prohibited",
+          "default": false,
+          "spec": {
+            "show": true
+          }
+        },
+        "amsdu": {
+          "key": "amsdu",
+          "default": true,
+          "spec": {
+            "show": true
+          }
+        },
+        "wjet": {
+          "key": "wjet",
+          "type": "object",
+          "default": {
+            "enabled": false,
+            "version": {
+              "key": "version",
+              "list": [
+                "auto",
+                "ipollv2",
+                "ipollv3"
+              ],
+              "default": "auto"
+            }
+          },
+          "spec": {
+            "show": true
+          }
+        },
+        "dfs": {
+          "key": "dfs",
+          "default": false,
+          "spec": {
+            "show": true
+          }
+        },
+        "vap": [
+          {
+            "$template": true,
+            "enabled": {
+              "key": "enabled",
+              "default": true,
+              "spec": {
+                "show": true
+              }
+            },
+            "vlanid": {
+              "key": "vlanid",
+              "type": "number",
+              "default": 0,
+              "spec": {
+                "range": {
+                  "min": 0,
+                  "max": 4095
+                }
+              }
+            },
+            "pre_ifname": {
+              "key": "pre_ifname",
+              "default": "ath",
+              "type": "string",
+              "spec": {
+                "show": true,
+                "required": false,
+                "readonly": true,
+                "range": {
+                  "min": 1,
+                  "max": 6
+                }
+              }
+            },
+            "mode": {
+              "key": "mode",
+              "default": "ap",
+              "type": "string",
+              "list": [
+                "ap",
+                "sta",
+                "monitor"
+              ],
+              "spec": {
+                "show": true
+              }
+            },
+            "wds": {
+              "key": "wds",
+              "default": false,
+              "spec": {
+                "show": false
+              }
+            },
+            "essid": {
+              "key": "essid",
+              "type": "string",
+              "default": "Infinity",
+              "spec": {
+                "show": true,
+                "required": true,
+                "range": {
+                  "min": 1,
+                  "max": 32
+                }
+              }
+            },
+            "broadcast_ssid": {
+              "key": "hidden",
+              "default": false,
+              "spec": {
+                "show": true,
+                "required": true
+              }
+            },
+            "bssid": {
+              "key": "bssid",
+              "type": "object",
+              "default": {
+                "enabled": false,
+                "value": {
+                  "key": "value",
+                  "type": "mac_address",
+                  "default": "00:00:00:00:00:00"
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": true
+              }
+            },
+            "macaddr": {
+              "key": "macaddr",
+              "type": "object",
+              "default": {
+                "enabled": false,
+                "value": {
+                  "key": "value",
+                  "type": "mac_address",
+                  "default": "00:00:00:00:00:00"
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": true
+              }
+            },
+            "agentargs": {
+              "key": "agentargs",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "type": "boolean",
+                  "default": true
+                },
+                "idletimeout": {
+                  "$parent": "enabled",
+                  "$selector": true,
+                  "key": "idletimeout",
+                  "type": "number",
+                  "default": 30,
+                  "spec": {
+                    "range": {
+                      "min": 0,
+                      "max": 4294967295
+                    }
+                  }
+                },
+                "accttimeout": {
+                  "$parent": "enabled",
+                  "$selector": true,
+                  "key": "accttimeout",
+                  "type": "number",
+                  "default": 60,
+                  "spec": {
+                    "range": {
+                      "min": 0,
+                      "max": 4294967295
+                    }
+                  }
+                },
+                "portal": {
+                  "$parent": "enabled",
+                  "$selector": true,
+                  "key": "portal",
+                  "type": "object",
+                  "spec": {
+                    "show": true
+                  },
+                  "default": {
+                    "nasaddr": {
+                      "key": "nasaddr",
+                      "type": "ipv4_address",
+                      "default": "0.0.0.0"
+                    },
+                    "prtipaddr": {
+                      "key": "prtipaddr",
+                      "type": "ipv4_address",
+                      "default": "1.1.1.1"
+                    },
+                    "prturl": {
+                      "key": "prturl",
+                      "type": "string",
+                      "default": "",
+                      "spec": {
+                        "range": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      }
+                    }
+                  }
+                },
+                "acl": {
+                  "key": "acl",
+                  "type": "object",
+                  "default": {
+                    "free": {
+                      "key": "free",
+                      "type": "object",
+                      "default": {
+                        "ip4": {
+                          "key": "ip4",
+                          "type": "array",
+                          "item_type": "ipv4_address",
+                          "maxitems": 64,
+                          "default": []
+                        },
+                        "host": {
+                          "key": "host",
+                          "type": "array",
+                          "item_type": "string",
+                          "maxitems": 16,
+                          "default": []
+                        }
+                      }
+                    },
+                    "deny": {
+                      "key": "deny",
+                      "type": "object",
+                      "default": {
+                        "ip4": {
+                          "key": "ip4",
+                          "type": "array",
+                          "item_type": "ipv4_address",
+                          "maxitems": 64,
+                          "default": [
+                            "1.1.1.1",
+                            "2.2.2.2"
+                          ]
+                        },
+                        "host": {
+                          "key": "host",
+                          "type": "array",
+                          "item_type": "string",
+                          "maxitems": 16,
+                          "default": []
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": false
+              }
+            },
+            "l2isolation": {
+              "key": "isolate",
+              "default": true,
+              "spec": {
+                "show": true
+              }
+            },
+            "wmm": {
+              "key": "wmm",
+              "default": true,
+              "spec": {
+                "show": true
+              }
+            },
+            "ssid2vlan": {
+              "key": "ssid2vlan",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "type": "boolean",
+                  "default": false
+                },
+                "id": {
+                  "key": "id",
+                  "type": "number",
+                  "range": {
+                    "min": 0,
+                    "max": 4095
+                  },
+                  "default": 10
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": false
+              }
+            },
+            "maxclients": {
+              "key": "maxclients",
+              "type": "number",
+              "default": 0,
+              "spec": {
+                "range": {
+                  "min": 0,
+                  "max": 64
+                }
+              }
+            },
+            "minsignal": {
+              "key": "minsignal",
+              "type": "number",
+              "default": 0,
+              "spec": {
+                "range": {
+                  "min": -100,
+                  "max": -50
+                }
+              }
+            },
+            "rate": {
+              "key": "rate",
+              "type": "object",
+              "default": {
+                "legacy": {
+                  "type": "string",
+                  "default": "auto",
+                  "key": "legacy",
+                  "list": [
+                    "auto",
+                    "1",
+                    "2",
+                    "5.5",
+                    "6",
+                    "9",
+                    "11",
+                    "12",
+                    "18",
+                    "24",
+                    "36",
+                    "48",
+                    "54"
+                  ]
+                },
+                "mcs": {
+                  "type": "string",
+                  "default": "auto",
+                  "key": "mcs",
+                  "list": [
+                    "auto",
+                    "0",
+                    "1",
+                    "2",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                    "10",
+                    "11",
+                    "13",
+                    "14",
+                    "15",
+                    "16",
+                    "17",
+                    "18",
+                    "19"
+                  ]
+                }
+              },
+              "spec": {
+                "show": false
+              }
+            },
+            "management": {
+              "key": "management",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "default": false,
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "tagged": {
+                  "key": "tagged",
+                  "default": true,
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "id": {
+                  "key": "id",
+                  "range": {
+                    "min": 0,
+                    "max": 4095
+                  },
+                  "default": 0
+                }
+              },
+              "spec": {
+                "show": false,
+                "required": false
+              }
+            },
+            "cwm": {
+              "key": "cwm",
+              "default": false,
+              "spec": {
+                "show": false
+              }
+            },
+            "shortgi": {
+              "key": "shortgi",
+              "default": false,
+              "spec": {
+                "show": false
+              }
+            },
+            "mcastenhance": {
+              "key": "mcastenhance",
+              "default": false,
+              "spec": {
+                "show": false
+              }
+            },
+            "trafficcontrol": {
+              "key": "trafficcontrol",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "default": false,
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "egress": {
+                  "key": "egress",
+                  "type": "object",
+                  "default": {
+                    "enabled": {
+                      "key": "enabled",
+                      "default": true,
+                      "spec": {
+                        "show": true
+                      }
+                    },
+                    "speed": {
+                      "key": "speed",
+                      "type": "number",
+                      "range": {
+                        "min": 0,
+                        "max": 1024000
+                      },
+                      "default": 0
+                    }
+                  },
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "ingress": {
+                  "key": "ingress",
+                  "type": "object",
+                  "default": {
+                    "enabled": {
+                      "key": "enabled",
+                      "default": true,
+                      "spec": {
+                        "show": true
+                      }
+                    },
+                    "speed": {
+                      "key": "speed",
+                      "type": "number",
+                      "range": {
+                        "min": 0,
+                        "max": 1024000
+                      },
+                      "default": 0
+                    }
+                  },
+                  "spec": {
+                    "show": true
+                  }
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": false
+              }
+            },
+            "macacl": {
+              "key": "macacl",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "default": false,
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "policy": {
+                  "key": "policy",
+                  "default": "open",
+                  "spec": {
+                    "show": true
+                  },
+                  "list": [
+                    "open",
+                    "allow",
+                    "deny"
+                  ]
+                },
+                "mac_list": {
+                  "key": "mac_list",
+                  "type": "array",
+                  "item_type": "mac_address",
+                  "maxitems": 64,
+                  "default": []
+                }
+              },
+              "spec": {
+                "show": true
+              }
+            },
+            "security": {
+              "key": "security",
+              "type": "object",
+              "spec": {
+                "show": true
+              },
+              "default": {
+                "mode": {
+                  "key": "mode",
+                  "default": "open",
+                  "spec": {
+                    "show": true
+                  },
+                  "list": [
+                    "open",
+                    "wep",
+                    "psk",
+                    "enterprise"
+                  ]
+                },
+                "wpacomb": {
+                  "key": "wpacomb",
+                  "type": "string",
+                  "$parent": "mode",
+                  "$selector": [
+                    "psk",
+                    "enterprise"
+                  ],
+                  "default": "",
+                  "spec": {
+                    "show": true
+                  },
+                  "list": [
+                    "",
+                    "wpa",
+                    "wpa2",
+                    "mixed"
+                  ]
+                },
+                "encryption": {
+                  "key": "encryption",
+                  "type": "string",
+                  "$parent": "mode",
+                  "$selector": [
+                    "psk",
+                    "enterprise"
+                  ],
+                  "default": "",
+                  "spec": {
+                    "show": true
+                  },
+                  "list": [
+                    "",
+                    "auto",
+                    "tkip",
+                    "aes",
+                    "mixed"
+                  ]
+                },
+                "wpapsk": {
+                  "key": "encryption",
+                  "type": "object",
+                  "$parent": "mode",
+                  "$selector": "psk",
+                  "default": {
+                    "passphrase": {
+                      "key": "passphrase",
+                      "type": "string",
+                      "default": "",
+                      "spec": {
+                        "range": {
+                          "min": 8,
+                          "max": 63
+                        }
+                      }
+                    }
+                  }
+                },
+                "wep": {
+                  "key": "wep",
+                  "type": "object",
+                  "$parent": "mode",
+                  "$selector": "wep",
+                  "default": {
+                    "length": {
+                      "key": "length",
+                      "type": "string",
+                      "default": "",
+                      "spec": {
+                        "show": false
+                      }
+                    },
+                    "index": {
+                      "key": "index",
+                      "type": "number",
+                      "default": 1,
+                      "spec": {
+                        "show": false,
+                        "range": {
+                          "min": 1,
+                          "max": 4
+                        }
+                      }
+                    },
+                    "key": {
+                      "key": "key",
+                      "type": "string",
+                      "default": "",
+                      "spec": {
+                        "show": false,
+                        "range": {
+                          "min": 1,
+                          "max": 32
+                        }
+                      }
+                    }
+                  }
+                },
+                "wpaenterprise": {
+                  "key": "wpaenterprise",
+                  "type": "object",
+                  "$parent": "mode",
+                  "$selector": "enterprise",
+                  "default": {
+                    "authentication": {
+                      "key": "authentication",
+                      "type": "object",
+                      "default": {
+                        "servers": {
+                          "key": "servers",
+                          "type": "array",
+                          "item_type": "object",
+                          "default": {
+                            "secret": {
+                              "key": "secret",
+                              "type": "string",
+                              "default": "",
+                              "spec": {
+                                "range": {
+                                  "min": 1,
+                                  "max": 16
+                                }
+                              }
+                            },
+                            "port": {
+                              "key": "port",
+                              "type": "number",
+                              "default": 1812,
+                              "spec": {
+                                "range": {
+                                  "min": 1,
+                                  "max": 65535
+                                }
+                              }
+                            },
+                            "address": {
+                              "key": "address",
+                              "type": "ipv4_address",
+                              "default": "",
+                              "spec": {
+                                "show": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "accounting": {
+                      "key": "accounting",
+                      "type": "object",
+                      "default": {
+                        "servers": {
+                          "key": "servers",
+                          "type": "array",
+                          "item_type": "object",
+                          "default": {
+                            "secret": {
+                              "key": "secret",
+                              "type": "string",
+                              "default": "",
+                              "spec": {
+                                "range": {
+                                  "min": 1,
+                                  "max": 16
+                                }
+                              }
+                            },
+                            "port": {
+                              "key": "port",
+                              "type": "number",
+                              "default": 1813,
+                              "spec": {
+                                "range": {
+                                  "min": 1,
+                                  "max": 65535
+                                }
+                              }
+                            },
+                            "address": {
+                              "key": "address",
+                              "type": "ipv4_address",
+                              "default": "",
+                              "spec": {
+                                "show": true
+                              }
+                            }
+                          }
+                        },
+                        "enabled": {
+                          "key": "enabled",
+                          "type": "bool",
+                          "default": false
+                        }
+                      }
+                    },
+                    "das": {
+                      "key": "das",
+                      "type": "object",
+                      "default": {
+                        "enabled": {
+                          "key": "enabled",
+                          "type": "boolean",
+                          "default": false
+                        },
+                        "clientip": {
+                          "key": "clientip",
+                          "type": "ipv4_address",
+                          "default": "0.0.0.0"
+                        },
+                        "port": {
+                          "key": "port",
+                          "type": "number",
+                          "default": "3799"
+                        },
+                        "secret": {
+                          "key": "secret",
+                          "type": "string",
+                          "default": "",
+                          "spec": {
+                            "range": {
+                              "min": 1,
+                              "max": 16
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "eap": {
+                      "key": "eap",
+                      "type": "object",
+                      "default": {
+                        "method": {
+                          "key": "method",
+                          "type": "string",
+                          "default": "eap-tls",
+                          "list": [
+                            "eap-tls",
+                            "eap-ttls",
+                            "eap-sim/aka",
+                            "eap-peap",
+                            "eap-pwd"
+                          ]
+                        },
+                        "identity": {
+                          "key": "identity",
+                          "type": "string",
+                          "default": "",
+                          "spec": {
+                            "range": {
+                              "min": 1,
+                              "max": 16
+                            }
+                          }
+                        },
+                        "password": {
+                          "key": "password",
+                          "type": "string",
+                          "default": "",
+                          "spec": {
+                            "range": {
+                              "min": 1,
+                              "max": 16
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "antennacount": {
+          "key": "antennacount",
+          "default": 2,
+          "spec": {
+            "show": true
+          }
+        },
+        "ifname": {
+          "key": "ifname",
+          "default": "wifi3",
+          "spec": {
+            "show": true
+          }
+        },
+        "ifindex": {
+          "key": "ifindex",
+          "default": 1,
+          "spec": {
+            "show": true
+          }
+        },
+        "enabled": {
+          "key": "enabled",
+          "default": true,
+          "spec": {
+            "show": true
+          }
+        },
+        "maxssid": {
+          "key": "maxssid",
+          "default": 8,
+          "spec": {
+            "show": true
+          }
+        },
+        "frequence": {
+          "key": "frequence",
+          "default": "5.8G",
+          "spec": {
+            "show": true
+          }
+        },
+        "ieeemode": {
+          "key": "ieeemode",
+          "list": [
+            "802.11a",
+            "802.11ac"
+          ],
+          "default": "802.11a",
+          "spec": {
+            "show": true
+          }
+        },
+        "channel": {
+          "key": "channel",
+          "default": 36,
+          "spec": {
+            "show": true
+          }
+        },
+        "htmode": {
+          "key": "htmode",
+          "list": [
+            "20",
+            "40+",
+            "40-"
+          ],
+          "default": "20",
+          "spec": {
+            "show": true
+          }
+        },
+        "antennagain": {
+          "key": "antennagain",
+          "default": 9,
+          "spec": {
+            "show": true
+          }
+        },
+        "txpower": {
+          "key": "txpower",
+          "default": 18,
+          "type": "number",
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 1,
+              "max": 26
+            }
+          }
+        },
+        "board_power": {
+          "key": "board_power",
+          "default": 18,
+          "type": "number",
+          "spec": {
+            "show": false,
+            "required": true,
+            "range": {
+              "min": 1,
+              "max": 26
+            }
+          }
+        },
+        "advance": {
+          "key": "advance",
+          "visible": false,
+          "default": true,
+          "spec": {
+            "show": true
+          }
+        },
+        "fragmentation": {
+          "key": "fragmentation",
+          "type": "object",
+          "default": {
+            "enabled": false,
+            "size": {
+              "key": "size",
+              "range": {
+                "min": 1,
+                "max": 2346
+              },
+              "default": 256
+            }
+          },
+          "spec": {
+            "show": true,
+            "required": true
+          }
+        },
+        "rts": {
+          "key": "rts",
+          "type": "object",
+          "default": {
+            "enabled": false,
+            "size": {
+              "key": "size",
+              "range": {
+                "min": 1,
+                "max": 2346
+              },
+              "default": 256
+            }
+          },
+          "spec": {
+            "show": true
+          }
+        },
+        "acktimeout": {
+          "key": "acktimeout",
+          "default": 100,
+          "type": "number",
+          "spec": {
+            "show": true,
+            "range": {
+              "min": 64,
+              "max": 512
+            }
+          }
+        },
+        "atpc": {
+          "key": "atpc",
+          "default": true,
+          "spec": {
+            "show": true
+          }
+        },
+        "bawinsize": {
+          "key": "bawinsize",
+          "default": 10,
+          "type": "number",
+          "spec": {
+            "show": true,
+            "range": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        },
+        "prohibited": {
+          "key": "prohibited",
+          "default": false,
+          "spec": {
+            "show": true
+          }
+        },
+        "amsdu": {
+          "key": "amsdu",
+          "default": true,
+          "spec": {
+            "show": true
+          }
+        },
+        "wjet": {
+          "key": "wjet",
+          "type": "object",
+          "default": {
+            "enabled": false,
+            "version": {
+              "key": "version",
+              "list": [
+                "auto",
+                "ipollv2",
+                "ipollv3"
+              ],
+              "default": "auto"
+            }
+          },
+          "spec": {
+            "show": true
+          }
+        },
+        "dfs": {
+          "key": "dfs",
+          "default": false,
+          "spec": {
+            "show": true
+          }
+        },
+        "vap": [
+          {
+            "$template": true,
+            "enabled": {
+              "key": "enabled",
+              "default": false,
+              "spec": {
+                "show": true
+              }
+            },
+            "vlanid": {
+              "key": "vlanid",
+              "type": "number",
+              "default": 0,
+              "spec": {
+                "range": {
+                  "min": 0,
+                  "max": 4095
+                }
+              }
+            },
+            "pre_ifname": {
+              "key": "pre_ifname",
+              "default": "ath",
+              "type": "string",
+              "spec": {
+                "show": true,
+                "required": false,
+                "readonly": true,
+                "range": {
+                  "min": 1,
+                  "max": 6
+                }
+              }
+            },
+            "mode": {
+              "key": "mode",
+              "default": "ap",
+              "type": "string",
+              "list": [
+                "ap",
+                "sta",
+                "monitor"
+              ],
+              "spec": {
+                "show": true
+              }
+            },
+            "wds": {
+              "key": "wds",
+              "default": false,
+              "spec": {
+                "show": false
+              }
+            },
+            "essid": {
+              "key": "essid",
+              "type": "string",
+              "default": "Infinity",
+              "spec": {
+                "show": true,
+                "required": true,
+                "range": {
+                  "min": 1,
+                  "max": 32
+                }
+              }
+            },
+            "broadcast_ssid": {
+              "key": "hidden",
+              "default": false,
+              "spec": {
+                "show": true,
+                "required": true
+              }
+            },
+            "bssid": {
+              "key": "bssid",
+              "type": "object",
+              "default": {
+                "enabled": false,
+                "value": {
+                  "key": "value",
+                  "type": "mac_address",
+                  "default": "00:00:00:00:00:00"
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": true
+              }
+            },
+            "macaddr": {
+              "key": "macaddr",
+              "type": "object",
+              "default": {
+                "enabled": false,
+                "value": {
+                  "key": "value",
+                  "type": "mac_address",
+                  "default": "00:00:00:00:00:00"
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": true
+              }
+            },
+            "agentargs": {
+              "key": "agentargs",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "type": "boolean",
+                  "default": true
+                },
+                "idletimeout": {
+                  "$parent": "enabled",
+                  "$selector": true,
+                  "key": "idletimeout",
+                  "type": "number",
+                  "default": 30,
+                  "spec": {
+                    "range": {
+                      "min": 0,
+                      "max": 4294967295
+                    }
+                  }
+                },
+                "accttimeout": {
+                  "$parent": "enabled",
+                  "$selector": true,
+                  "key": "accttimeout",
+                  "type": "number",
+                  "default": 60,
+                  "spec": {
+                    "range": {
+                      "min": 0,
+                      "max": 4294967295
+                    }
+                  }
+                },
+                "portal": {
+                  "$parent": "enabled",
+                  "$selector": true,
+                  "key": "portal",
+                  "type": "object",
+                  "spec": {
+                    "show": true
+                  },
+                  "default": {
+                    "nasaddr": {
+                      "key": "nasaddr",
+                      "type": "ipv4_address",
+                      "default": "0.0.0.0"
+                    },
+                    "prtipaddr": {
+                      "key": "prtipaddr",
+                      "type": "ipv4_address",
+                      "default": "1.1.1.1"
+                    },
+                    "prturl": {
+                      "key": "prturl",
+                      "type": "string",
+                      "default": "",
+                      "spec": {
+                        "range": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      }
+                    }
+                  }
+                },
+                "acl": {
+                  "key": "acl",
+                  "type": "object",
+                  "default": {
+                    "free": {
+                      "key": "free",
+                      "type": "object",
+                      "default": {
+                        "ip4": {
+                          "key": "ip4",
+                          "type": "array",
+                          "item_type": "ipv4_address",
+                          "maxitems": 64,
+                          "default": []
+                        },
+                        "host": {
+                          "key": "host",
+                          "type": "array",
+                          "item_type": "string",
+                          "maxitems": 16,
+                          "default": []
+                        }
+                      }
+                    },
+                    "deny": {
+                      "key": "deny",
+                      "type": "object",
+                      "default": {
+                        "ip4": {
+                          "key": "ip4",
+                          "type": "array",
+                          "item_type": "ipv4_address",
+                          "maxitems": 64,
+                          "default": [
+                            "1.1.1.1",
+                            "2.2.2.2"
+                          ]
+                        },
+                        "host": {
+                          "key": "host",
+                          "type": "array",
+                          "item_type": "string",
+                          "maxitems": 16,
+                          "default": []
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": false
+              }
+            },
+            "l2isolation": {
+              "key": "isolate",
+              "default": true,
+              "spec": {
+                "show": true
+              }
+            },
+            "wmm": {
+              "key": "wmm",
+              "default": true,
+              "spec": {
+                "show": true
+              }
+            },
+            "ssid2vlan": {
+              "key": "ssid2vlan",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "type": "boolean",
+                  "default": false
+                },
+                "id": {
+                  "key": "id",
+                  "type": "number",
+                  "range": {
+                    "min": 0,
+                    "max": 4095
+                  },
+                  "default": 10
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": false
+              }
+            },
+            "maxclients": {
+              "key": "maxclients",
+              "type": "number",
+              "default": 0,
+              "spec": {
+                "range": {
+                  "min": 0,
+                  "max": 64
+                }
+              }
+            },
+            "minsignal": {
+              "key": "minsignal",
+              "type": "number",
+              "default": 0,
+              "spec": {
+                "range": {
+                  "min": -100,
+                  "max": -50
+                }
+              }
+            },
+            "rate": {
+              "key": "rate",
+              "type": "object",
+              "default": {
+                "legacy": {
+                  "type": "string",
+                  "key": "legacy",
+                  "default": "auto",
+                  "list": [
+                    "auto",
+                    "1",
+                    "2",
+                    "5.5",
+                    "6",
+                    "9",
+                    "11",
+                    "12",
+                    "18",
+                    "24",
+                    "36",
+                    "48",
+                    "54"
+                  ]
+                },
+                "mcs": {
+                  "type": "string",
+                  "default": "auto",
+                  "key": "mcs",
+                  "list": [
+                    "auto",
+                    "0",
+                    "1",
+                    "2",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                    "10",
+                    "11",
+                    "13",
+                    "14",
+                    "15",
+                    "16",
+                    "17",
+                    "18",
+                    "19"
+                  ]
+                }
+              },
+              "spec": {
+                "show": false
+              }
+            },
+            "management": {
+              "key": "management",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "default": false,
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "tagged": {
+                  "key": "tagged",
+                  "default": true,
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "id": {
+                  "key": "id",
+                  "range": {
+                    "min": 0,
+                    "max": 4095
+                  },
+                  "default": 0
+                }
+              },
+              "spec": {
+                "show": false,
+                "required": false
+              }
+            },
+            "cwm": {
+              "key": "cwm",
+              "default": false,
+              "spec": {
+                "show": false
+              }
+            },
+            "shortgi": {
+              "key": "shortgi",
+              "default": false,
+              "spec": {
+                "show": false
+              }
+            },
+            "mcastenhance": {
+              "key": "mcastenhance",
+              "default": false,
+              "spec": {
+                "show": false
+              }
+            },
+            "trafficcontrol": {
+              "key": "trafficcontrol",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "default": false,
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "egress": {
+                  "key": "egress",
+                  "type": "object",
+                  "default": {
+                    "enabled": {
+                      "key": "enabled",
+                      "default": true,
+                      "spec": {
+                        "show": true
+                      }
+                    },
+                    "speed": {
+                      "key": "speed",
+                      "type": "number",
+                      "range": {
+                        "min": 0,
+                        "max": 1024000
+                      },
+                      "default": 0
+                    }
+                  },
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "ingress": {
+                  "key": "ingress",
+                  "type": "object",
+                  "default": {
+                    "enabled": {
+                      "key": "enabled",
+                      "default": true,
+                      "spec": {
+                        "show": true
+                      }
+                    },
+                    "speed": {
+                      "key": "speed",
+                      "type": "number",
+                      "range": {
+                        "min": 0,
+                        "max": 1024000
+                      },
+                      "default": 0
+                    }
+                  },
+                  "spec": {
+                    "show": true
+                  }
+                }
+              },
+              "spec": {
+                "show": true,
+                "required": false
+              }
+            },
+            "macacl": {
+              "key": "macacl",
+              "type": "object",
+              "default": {
+                "enabled": {
+                  "key": "enabled",
+                  "default": false,
+                  "spec": {
+                    "show": true
+                  }
+                },
+                "policy": {
+                  "key": "policy",
+                  "default": "open",
+                  "spec": {
+                    "show": true
+                  },
+                  "list": [
+                    "open",
+                    "allow",
+                    "deny"
+                  ]
+                },
+                "mac_list": {
+                  "key": "mac_list",
+                  "type": "array",
+                  "item_type": "mac_address",
+                  "maxitems": 64,
+                  "default": []
+                }
+              },
+              "spec": {
+                "show": true
+              }
+            },
+            "security": {
+              "key": "security",
+              "type": "object",
+              "spec": {
+                "show": true
+              },
+              "default": {
+                "mode": {
+                  "key": "mode",
+                  "default": "open",
+                  "spec": {
+                    "show": true
+                  },
+                  "list": [
+                    "open",
+                    "wep",
+                    "psk",
+                    "enterprise"
+                  ]
+                },
+                "wpacomb": {
+                  "key": "wpacomb",
+                  "type": "string",
+                  "$parent": "mode",
+                  "$selector": [
+                    "psk",
+                    "enterprise"
+                  ],
+                  "default": "",
+                  "spec": {
+                    "show": true
+                  },
+                  "list": [
+                    "",
+                    "wpa",
+                    "wpa2",
+                    "mixed"
+                  ]
+                },
+                "encryption": {
+                  "key": "encryption",
+                  "type": "string",
+                  "$parent": "mode",
+                  "$selector": [
+                    "psk",
+                    "enterprise"
+                  ],
+                  "default": "",
+                  "spec": {
+                    "show": true
+                  },
+                  "list": [
+                    "",
+                    "auto",
+                    "tkip",
+                    "aes",
+                    "mixed"
+                  ]
+                },
+                "wpapsk": {
+                  "key": "wpapsk",
+                  "type": "object",
+                  "$parent": "mode",
+                  "$selector": "psk",
+                  "default": {
+                    "passphrase": {
+                      "key": "passphrase",
+                      "type": "string",
+                      "default": "",
+                      "spec": {
+                        "range": {
+                          "min": 8,
+                          "max": 63
+                        }
+                      }
+                    }
+                  }
+                },
+                "wep": {
+                  "key": "wep",
+                  "type": "object",
+                  "$parent": "mode",
+                  "$selector": "wep",
+                  "default": {
+                    "length": {
+                      "key": "length",
+                      "type": "string",
+                      "default": "",
+                      "spec": {
+                        "show": false
+                      }
+                    },
+                    "index": {
+                      "key": "index",
+                      "type": "number",
+                      "default": 1,
+                      "spec": {
+                        "show": false,
+                        "range": {
+                          "min": 1,
+                          "max": 4
+                        }
+                      }
+                    },
+                    "key": {
+                      "key": "key",
+                      "type": "string",
+                      "default": "",
+                      "spec": {
+                        "show": false,
+                        "range": {
+                          "min": 1,
+                          "max": 32
+                        }
+                      }
+                    }
+                  }
+                },
+                "wpaenterprise": {
+                  "key": "wpaenterprise",
+                  "type": "object",
+                  "$parent": "mode",
+                  "$selector": "enterprise",
+                  "default": {
+                    "authentication": {
+                      "key": "authentication",
+                      "type": "object",
+                      "default": {
+                        "servers": {
+                          "key": "servers",
+                          "type": "array",
+                          "item_type": "object",
+                          "default": {
+                            "secret": {
+                              "key": "secret",
+                              "type": "string",
+                              "default": "",
+                              "spec": {
+                                "range": {
+                                  "min": 1,
+                                  "max": 16
+                                }
+                              }
+                            },
+                            "port": {
+                              "key": "port",
+                              "type": "number",
+                              "default": 1812,
+                              "spec": {
+                                "range": {
+                                  "min": 1,
+                                  "max": 65535
+                                }
+                              }
+                            },
+                            "address": {
+                              "key": "address",
+                              "type": "ipv4_address",
+                              "default": "",
+                              "spec": {
+                                "show": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "accounting": {
+                      "key": "accounting",
+                      "type": "object",
+                      "default": {
+                        "servers": {
+                          "key": "servers",
+                          "type": "object",
+                          "item_type": "object",
+                          "default": {
+                            "secret": {
+                              "key": "secret",
+                              "type": "string",
+                              "default": "",
+                              "spec": {
+                                "range": {
+                                  "min": 1,
+                                  "max": 16
+                                }
+                              }
+                            },
+                            "port": {
+                              "key": "port",
+                              "type": "number",
+                              "default": 1813,
+                              "spec": {
+                                "range": {
+                                  "min": 1,
+                                  "max": 65535
+                                }
+                              }
+                            },
+                            "address": {
+                              "key": "address",
+                              "type": "ipv4_address",
+                              "default": "",
+                              "spec": {
+                                "show": true
+                              }
+                            }
+                          }
+                        },
+                        "enabled": {
+                          "key": "enabled",
+                          "type": "bool",
+                          "default": false
+                        }
+                      }
+                    },
+                    "das": {
+                      "key": "das",
+                      "type": "object",
+                      "default": {
+                        "enabled": {
+                          "key": "enabled",
+                          "type": "boolean",
+                          "default": false
+                        },
+                        "clientip": {
+                          "key": "clientip",
+                          "type": "ipv4_address",
+                          "default": "0.0.0.0"
+                        },
+                        "port": {
+                          "key": "port",
+                          "type": "number",
+                          "default": "3799"
+                        },
+                        "secret": {
+                          "key": "secret",
+                          "type": "string",
+                          "default": "",
+                          "spec": {
+                            "range": {
+                              "min": 1,
+                              "max": 16
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "eap": {
+                      "key": "eap",
+                      "type": "object",
+                      "default": {
+                        "method": {
+                          "key": "method",
+                          "type": "string",
+                          "default": "eap-tls",
+                          "list": [
+                            "eap-tls",
+                            "eap-ttls",
+                            "eap-sim/aka",
+                            "eap-peap",
+                            "eap-pwd"
+                          ]
+                        },
+                        "identity": {
+                          "key": "identity",
+                          "type": "string",
+                          "default": "",
+                          "spec": {
+                            "range": {
+                              "min": 1,
+                              "max": 16
+                            }
+                          }
+                        },
+                        "password": {
+                          "key": "password",
+                          "type": "string",
+                          "default": "",
+                          "spec": {
+                            "range": {
+                              "min": 1,
+                              "max": 16
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "network": {
+    "ethernet": [
+      {
+        "ifname": {
+          "key": "ifname",
+          "default": "eth0"
+        },
+        "ifindex": {
+          "key": "ifindex",
+          "default": 0
+        },
+        "enable": {
+          "key": "enable",
+          "default": true
+        },
+        "uplink": {
+          "key": "uplink",
+          "default": true
+        },
+        "spec": {
+          "isview": true,
+          "readonly": true,
+          "default": true
+        }
+      },
+      {
+        "ifname": {
+          "key": "ifname",
+          "default": "eth1"
+        },
+        "ifindex": {
+          "key": "ifindex",
+          "default": 1
+        },
+        "enable": {
+          "key": "enable",
+          "default": true
+        },
+        "uplink": {
+          "key": "uplink",
+          "default": false
+        },
+        "spec": {
+          "isview": true,
+          "readonly": true,
+          "default": true
+        }
+      }
+    ],
+    "interface": [
+      {
+        "$template": true,
+        "iftype": {
+          "key": "iftype",
+          "type": "string",
+          "default": "ethernet",
+          "spec": {
+            "readonly": true,
+            "show": true
+          }
+        },
+        "ifname": {
+          "key": "ifname",
+          "type": "string",
+          "default": "",
+          "spec": {
+            "range": {
+              "min": 3,
+              "max": 10
+            }
+          }
+        },
+        "enabled": {
+          "key": "enabled",
+          "type": "boolean",
+          "default": true,
+          "spec": {
+            "show": true
+          }
+        },
+        "phy_index": {
+          "key": "phy_index",
+          "type": "number",
+          "default": 0,
+          "spec": {
+            "range": {
+              "min": 0,
+              "max": 64
+            }
+          }
+        },
+        "vlanid": {
+          "key": "vlanid",
+          "type": "number",
+          "default": 0,
+          "spec": {
+            "range": {
+              "min": 0,
+              "max": 4095
+            }
+          }
+        },
+        "ssid_name": {
+          "key": "ssid_name",
+          "type": "string",
+          "default": "free-ssid",
+          "spec": {
+            "range": {
+              "min": 1,
+              "max": 32
+            }
+          }
+        },
+        "ssid2vlan": {
+          "key": "ssid2vlan",
+          "type": "object",
+          "default": {
+            "enabled": {
+              "key": "enabled",
+              "type": "boolean",
+              "default": false
+            },
+            "id": {
+              "key": "id",
+              "type": "number",
+              "range": {
+                "min": 0,
+                "max": 4095
+              },
+              "default": 10
+            }
+          },
+          "spec": {
+            "show": true,
+            "required": false
+          }
+        },
+        "agentargs": {
+          "key": "agentargs",
+          "type": "object",
+          "default": {
+            "enabled": {
+              "key": "enabled",
+              "type": "boolean",
+              "default": true
+            },
+            "iftype": {
+              "$parent": "enabled",
+              "$selector": true,
+              "key": "iftype",
+              "type": "number",
+              "default": 0,
+              "spec": {
+                "readonly": true,
+                "show": false
+              }
+            },
+            "idletimeout": {
+              "$parent": "enabled",
+              "$selector": true,
+              "key": "idletimeout",
+              "type": "number",
+              "default": 30,
+              "spec": {
+                "range": {
+                  "min": 0,
+                  "max": 4294967295
+                }
+              }
+            },
+            "accttimeout": {
+              "$parent": "enabled",
+              "$selector": true,
+              "key": "accttimeout",
+              "type": "number",
+              "default": 60,
+              "spec": {
+                "range": {
+                  "min": 0,
+                  "max": 4294967295
+                }
+              }
+            },
+            "portal": {
+              "$parent": "enabled",
+              "$selector": true,
+              "key": "portal",
+              "type": "object",
+              "spec": {
+                "show": true
+              },
+              "default": {
+                "nasaddr": {
+                  "key": "nasaddr",
+                  "type": "ipv4_address",
+                  "default": "0.0.0.0"
+                },
+                "prtipaddr": {
+                  "key": "prtipaddr",
+                  "type": "ipv4_address",
+                  "default": "1.1.1.1"
+                },
+                "prturl": {
+                  "key": "prturl",
+                  "type": "string",
+                  "default": "",
+                  "spec": {
+                    "range": {
+                      "min": 1,
+                      "max": 1024
+                    }
+                  }
+                }
+              }
+            },
+            "acl": {
+              "key": "acl",
+              "type": "object",
+              "default": {
+                "free": {
+                  "key": "free",
+                  "type": "object",
+                  "default": {
+                    "ip4": {
+                      "key": "ip4",
+                      "type": "array",
+                      "item_type": "ipv4_address",
+                      "maxitems": 64,
+                      "default": []
+                    },
+                    "host": {
+                      "key": "host",
+                      "type": "array",
+                      "item_type": "string",
+                      "maxitems": 16,
+                      "default": []
+                    }
+                  }
+                },
+                "deny": {
+                  "key": "deny",
+                  "type": "object",
+                  "default": {
+                    "ip4": {
+                      "key": "ip4",
+                      "type": "array",
+                      "item_type": "ipv4_address",
+                      "maxitems": 64,
+                      "default": [
+                        "1.1.1.1",
+                        "2.2.2.2"
+                      ]
+                    },
+                    "host": {
+                      "key": "host",
+                      "type": "array",
+                      "item_type": "string",
+                      "maxitems": 16,
+                      "default": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "spec": {
+            "show": true,
+            "required": false
+          }
+        }
+      }
+    ],
+    "route": [
+      {
+        "$template": true,
+        "enabled": {
+          "key": "enabled",
+          "default": false,
+          "spec": {
+            "show": true
+          }
+        },
+        "name": {
+          "key": "name",
+          "default": "",
+          "type": "string",
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 1,
+              "max": 32
+            }
+          }
+        },
+        "interface": {
+          "key": "interface",
+          "default": "",
+          "type": "string",
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 3,
+              "max": 16
+            }
+          }
+        },
+        "dstnet": {
+          "key": "dstnet",
+          "default": "0.0.0.0",
+          "type": "ipv4_address",
+          "spec": {
+            "show": true,
+            "required": true
+          }
+        },
+        "netmask": {
+          "key": "netmask",
+          "default": "0.0.0.0",
+          "type": "ipv4_address",
+          "spec": {
+            "show": true,
+            "required": true
+          }
+        },
+        "gateway": {
+          "key": "gateway",
+          "default": "0.0.0.0",
+          "type": "ipv4_address",
+          "spec": {
+            "show": true,
+            "required": true
+          }
+        },
+        "metric": {
+          "key": "metric",
+          "default": 0,
+          "type": "number",
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 0,
+              "max": 999
+            }
+          }
+        },
+        "mtu": {
+          "key": "mtu",
+          "default": 0,
+          "type": "number",
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 0,
+              "max": 9000
+            }
+          }
+        }
+      }
+    ],
+    "trafficcontrol": [
+      {
+        "$template": true,
+        "enabled": {
+          "key": "enabled",
+          "default": false,
+          "spec": {
+            "show": true
+          }
+        },
+        "interface": {
+          "key": "interface",
+          "default": "",
+          "type": "string",
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 3,
+              "max": 16
+            }
+          }
+        },
+        "egress": {
+          "key": "egress",
+          "type": "object",
+          "default": {
+            "speed": {
+              "key": "speed",
+              "default": 0,
+              "type": "number",
+              "range": {
+                "min": 1,
+                "max": 1024000
+              }
+            }
+          },
+          "spec": {
+            "show": true,
+            "required": true
+          }
+        },
+        "ingress": {
+          "key": "ingress",
+          "type": "object",
+          "default": {
+            "speed": {
+              "key": "speed",
+              "default": 0,
+              "type": "number",
+              "range": {
+                "min": 1,
+                "max": 1024000
+              }
+            }
+          },
+          "spec": {
+            "show": true,
+            "required": true
+          }
+        }
+      }
+    ],
+    "switch": [
+      {
+        "$template": true,
+        "name": {
+          "key": "name",
+          "type": "string",
+          "default": " ",
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 1,
+              "max": 32
+            }
+          }
+        },
+        "mtu": {
+          "key": "mtu",
+          "type": "number",
+          "default": 0,
+          "spec": {
+            "show": true,
+            "required": true,
+            "range": {
+              "min": 0,
+              "max": 9000
+            }
+          }
+        },
+        "mode": {
+          "key": "mode",
+          "default": "system",
+          "type": "string",
+          "list": [
+            "ovs",
+            "system"
+          ],
+          "spec": {
+            "show": true
+          }
+        },
+        "vport": [
+          {
+            "$template": true,
+            "$parent": "mode",
+            "$selector": "system",
+            "type": "object",
+            "key": "vport",
+            "default": {
+              "portname": {
+                "key": "portname",
+                "type": "string",
+                "default": "",
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 3,
+                    "max": 16
+                  }
+                }
+              },
+              "vlan_id": {
+                "key": "vlan_id",
+                "type": "number",
+                "default": 0,
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 0,
+                    "max": 4095
+                  }
+                }
+              },
+              "is_wifi": {
+                "key": "is_wifi",
+                "type": "boolean",
+                "default": false,
+                "spec": {
+                  "show": true
+                }
+              },
+              "radio_index": {
+                "key": "radio_index",
+                "type": "number",
+                "$parent": "is_wifi",
+                "$selector": true,
+                "default": 0,
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 0,
+                    "max": 1
+                  }
+                }
+              },
+              "ssid": {
+                "key": "ssid",
+                "type": "string",
+                "$parent": "is_wifi",
+                "$selector": true,
+                "default": "",
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 1,
+                    "max": 32
+                  }
+                }
+              }
+            }
+          },
+          {
+            "$template": true,
+            "$parent": "mode",
+            "$selector": "ovs",
+            "type": "object",
+            "key": "vport",
+            "default": {
+              "portname": {
+                "key": "portname",
+                "type": "string",
+                "default": "",
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 3,
+                    "max": 16
+                  }
+                }
+              },
+              "portnumber": {
+                "key": "portnumber",
+                "type": "number",
+                "default": "",
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 1,
+                    "max": 9999999
+                  }
+                }
+              },
+              "is_wifi": {
+                "key": "is_wifi",
+                "type": "boolean",
+                "default": false,
+                "spec": {
+                  "show": true
+                }
+              },
+              "radio_index": {
+                "key": "radio_index",
+                "type": "number",
+                "$parent": "is_wifi",
+                "$selector": true,
+                "default": 0,
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 0,
+                    "max": 1
+                  }
+                }
+              },
+              "ssid": {
+                "key": "ssid",
+                "type": "string",
+                "$parent": "is_wifi",
+                "$selector": true,
+                "default": "",
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 1,
+                    "max": 32
+                  }
+                }
+              },
+              "vlan_type": {
+                "key": "vlan_type",
+                "default": "trunk",
+                "type": "string",
+                "list": [
+                  "trunk",
+                  "access"
+                ],
+                "spec": {
+                  "show": true
+                }
+              },
+              "vlan_id_trunk": {
+                "key": "vlan_id",
+                "type": "string",
+                "item_type": "number",
+                "$parent": "vlan_type",
+                "$selector": "trunk",
+                "default": "0",
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "item_range": {
+                    "min": 0,
+                    "max": 4095
+                  }
+                }
+              },
+              "vlan_id_access": {
+                "key": "vlan_id",
+                "type": "number",
+                "default": 0,
+                "$parent": "vlan_type",
+                "$selector": "access",
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 0,
+                    "max": 4095
+                  }
+                }
+              },
+              "port_type": {
+                "key": "port_type",
+                "default": "default",
+                "type": "string",
+                "list": [
+                  "default",
+                  "internal",
+                  "vxlan"
+                ],
+                "spec": {
+                  "show": true
+                }
+              },
+              "vni": {
+                "key": "vni",
+                "type": "number",
+                "default": 0,
+                "$parent": "port_type",
+                "$selector": "vxlan",
+                "spec": {
+                  "show": true,
+                  "required": true,
+                  "range": {
+                    "min": 0,
+                    "max": 16777215
+                  }
+                }
+              },
+              "remote_ip": {
+                "key": "remote_ip",
+                "type": "ipv4_address",
+                "default": "0.0.0.0",
+                "$parent": "port_type",
+                "$selector": "vxlan",
+                "spec": {
+                  "show": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "system": {
+    "tun_syslog": {
+      "enabled": {
+        "key": "enabled",
+        "default": false,
+        "spec": {
+          "show": true
+        }
+      },
+      "ipaddr": {
+        "key": "ipaddr",
+        "default": "127.0.0.1",
+        "type": "ipv4_address",
+        "spec": {
+          "show": true,
+          "required": true
+        }
+      },
+      "port": {
+        "key": "port",
+        "default": 514,
+        "type": "number",
+        "spec": {
+          "show": true,
+          "required": true,
+          "range": {
+            "min": 1,
+            "max": 65535
+          }
+        }
+      }
+    },
+    "sys_syslog": {
+      "enabled": {
+        "key": "enabled",
+        "default": false,
+        "spec": {
+          "show": true
+        }
+      },
+      "ipaddr": {
+        "key": "ipaddr",
+        "default": "127.0.0.1",
+        "type": "ipv4_address",
+        "spec": {
+          "show": true,
+          "required": true
+        }
+      },
+      "port": {
+        "key": "port",
+        "default": 514,
+        "type": "number",
+        "spec": {
+          "show": true,
+          "required": true,
+          "range": {
+            "min": 1,
+            "max": 65535
+          }
+        }
+      },
+      "level": {
+        "key": "level",
+        "default": "info",
+        "list": [
+          "debug",
+          "info",
+          "notice",
+          "warn",
+          "err",
+          "crit",
+          "alert",
+          "emerg"
+        ],
+        "spec": {
+          "show": true
+        }
+      }
+    }
+  }
+}

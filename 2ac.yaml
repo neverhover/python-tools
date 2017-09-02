@@ -1,0 +1,46 @@
+device:
+  hardware:
+    prefix-name: 'LigoWave'
+    type: 'AP'
+    boardname: 'FWBD-1807'
+    product-name: 'NFT 2ac AF'
+  network:
+    ethernet:
+      - ifname:
+          key: 'ifname'
+          default: 'eth0'
+        ifindex:
+          key: 'ifindex'
+          default: 0
+        enable:
+          key: 'enable'
+          default: true
+        uplink:
+          key: 'uplink'
+          default: true
+        spec:
+          isview: true,
+          readonly: true
+          default: true
+      - ifname:
+          key: 'ifname'
+          default: 'eth1'
+        ifindex:
+          key: 'ifindex'
+          default: 1
+        enable:
+          key: 'enable'
+          default: true
+        uplink:
+          key: 'uplink'
+          default: false
+        spec:
+          isview: true,
+          readonly: true
+          default: true
+    interface:
+      -
+        iftype:
+          key: iftype2
+          type: string
+          default: ethernet

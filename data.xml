@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This document is writen by Zhangleyi@ligowave.com-->
+<device>
+  <xml-ver>v1.4.2</xml-ver>
+  <hardware type="AP">
+    <prefix-name>NatShell</prefix-name>
+    <boardname>ns-8-pw3</boardname>
+    <product-name>ns-8-pw3</product-name>
+    <firmware>V4.6.0</firmware>
+  </hardware>
+  <system>
+    <tun-syslog>
+      <enabled default="false" show="true"/>
+      <ipaddr default="127.0.0.1" required="true" show="true" type="ipv4_address"/>
+      <port default="514" range="1..65535" required="true" show="true" type="number"/>
+    </tun-syslog>
+    <sys-syslog>
+      <enabled default="false" show="true"/>
+      <ipaddr default="127.0.0.1" required="true" show="true" type="ipv4_address"/>
+      <port default="514" range="1..65535" required="true" show="true" type="number"/>
+      <level default="info" show="true" type="choice">
+        <option>debug</option>
+        <option>info</option>
+        <option>notice</option>
+        <option>warn</option>
+        <option>err</option>
+        <option>crit</option>
+        <option>alert</option>
+        <option>emerg</option>
+      </level>
+    </sys-syslog>
+    <crontab type="list">
+      <enabled default="true" show="true" type="boolean"/>
+      <minute default="*/5" show="true" type="string"/>
+      <hour default="23/2" show="true" type="string"/>
+      <day default="14/2" show="true" type="string"/>
+      <month default="*" show="true" type="string"/>
+      <day default="1/2" show="true" type="choice">
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+      </day>
+      <user default="root" show="true" type="string"/>
+      <command default="reboot" show="true" type="choice">
+        <option>reboot</option>
+        <option>wifi_up</option>
+        <option>wifi_down</option>
+      </command>
+    </crontab>
+  </system>
+  <network>
+    <ethernet default="true">
+      <ifname default="eth0"/>
+      <ifindex default="0"/>
+      <enable default="true"/>
+      <uplink default="true"/>
+      <isview>true</isview>
+      <readonly>true</readonly>
+    </ethernet>
+    <ethernet default="true">
+      <ifname default="eth1"/>
+      <ifindex default="1"/>
+      <enable default="true"/>
+      <uplink default="false"/>
+      <isview>true</isview>
+      <readonly>true</readonly>
+    </ethernet>
+    <interface type="list">
+      <iftype default="ethernet" show="true" type="string">
+        <readonly>true</readonly>
+      </iftype>
+      <ifname default="" range="3..10" type="string"/>
+      <enabled default="true" show="true" type="boolean"/>
+      <phy-index default="0" range="0..64" type="number"/>
+      <vlanid default="0" range="0..4095" type="number"/>
+      <ssid-name default="free-ssid" range="1..32" type="string"/>
+      <ssid2vlan required="false" show="true" type="object">
+        <enabled default="false" type="boolean"/>
+        <id default="10" range="0..4095" type="number"/>
+      </ssid2vlan>
+      <agentargs required="false" show="true" type="object">
+        <enabled default="true" type="boolean"/>
+        <iftype default="0" show="false" type="number">
+          <readonly>true</readonly>
+        </iftype>
+        <idletimeout default="30" range="0..4294967295" type="number"/>
+        <accttimeout default="60" range="0..4294967295" type="number"/>
+        <portal-method default="302" show="true" type="choice">
+          <option>302</option>
+          <option>200_meta</option>
+          <option>200_js</option>
+          <option>302_1.0</option>
+          <option>302_1.1</option>
+        </portal-method>
+        <portal-ip-type default="real" type="choice">
+          <option>real</option>
+          <option>virtual</option>
+        </portal-ip-type>
+        <portal show="true" type="object">
+          <nasaddr default="0.0.0.0" type="ipv4_address"/>
+          <prtipaddr default="1.1.1.1" type="ipv4_address"/>
+          <prturl default="" range="1..1024" type="string"/>
+        </portal>
+        <portal-urlargs-config>
+          <name default="acname" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="wlanacname" type="string"/>
+        </portal-urlargs-config>
+        <portal-urlargs-config>
+          <name default="acip" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="wlanacip" type="string"/>
+          <format default="u.u.u.u" type="choice">
+            <option>u.u.u.u</option>
+            <option>u-u-u-u</option>
+            <option>u</option>
+          </format>
+        </portal-urlargs-config>
+        <portal-urlargs-config>
+          <name default="staip" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="wlanuserip" type="string"/>
+          <format default="u.u.u.u" type="choice">
+            <option>u.u.u.u</option>
+            <option>u-u-u-u</option>
+            <option>u</option>
+          </format>
+        </portal-urlargs-config>
+        <portal-urlargs-config>
+          <name default="stamac" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="wlanusermac" type="string"/>
+          <format default="02x-02x-02x-02x-02x-02x" type="choice">
+            <option>02x-02x-02x-02x-02x-02x</option>
+            <option>02X-02X-02X-02X-02X-02X</option>
+            <option>02x:02x:02x:02x:02x:02x</option>
+            <option>02X:02X:02X:02X:02X:02X</option>
+            <option>02x%3a02x%3a02x%3a02x%3a02x%3a02x</option>
+            <option>02X%3A02X%3A02X%3A02X%3A02X%3A02X</option>
+            <option>x-x-x-x-x-x</option>
+            <option>X-X-X-X-X-X</option>
+            <option>x:x:x:x:x:x</option>
+            <option>X:X:X:X:X:X</option>
+            <option>02x02x02x-02x02x02x</option>
+            <option>02X02X02X-02X02X02X</option>
+            <option>02x02x02x:02x02x02x</option>
+            <option>02X02X02X:02X02X02X</option>
+            <option>02x02x02x%3a02x02x02x</option>
+            <option>02X02X02X%3A02X02X02X</option>
+          </format>
+        </portal-urlargs-config>
+        <portal-urlargs-config>
+          <name default="apid" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="apid" type="string"/>
+        </portal-urlargs-config>
+        <portal-urlargs-config>
+          <name default="apmac" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="apmac" type="string"/>
+          <format default="02x-02x-02x-02x-02x-02x" type="choice">
+            <option>02x-02x-02x-02x-02x-02x</option>
+            <option>02X-02X-02X-02X-02X-02X</option>
+            <option>02x:02x:02x:02x:02x:02x</option>
+            <option>02X:02X:02X:02X:02X:02X</option>
+            <option>02x%3a02x%3a02x%3a02x%3a02x%3a02x</option>
+            <option>02X%3A02X%3A02X%3A02X%3A02X%3A02X</option>
+            <option>x-x-x-x-x-x</option>
+            <option>X-X-X-X-X-X</option>
+            <option>x:x:x:x:x:x</option>
+            <option>X:X:X:X:X:X</option>
+            <option>02x02x02x-02x02x02x</option>
+            <option>02X02X02X-02X02X02X</option>
+            <option>02x02x02x:02x02x02x</option>
+            <option>02X02X02X:02X02X02X</option>
+            <option>02x02x02x%3a02x02x02x</option>
+            <option>02X02X02X%3A02X02X02X</option>
+          </format>
+        </portal-urlargs-config>
+        <portal-urlargs-config>
+          <name default="orgid" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="orgid" type="string"/>
+        </portal-urlargs-config>
+        <portal-urlargs-config>
+          <name default="brcid" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="brcid" type="string"/>
+        </portal-urlargs-config>
+        <portal-urlargs-config>
+          <name default="ssid" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="ssid" type="string"/>
+        </portal-urlargs-config>
+        <portal-urlargs-config>
+          <name default="staurl" type="string"/>
+          <show default="true" type="boolean"/>
+          <alias default="wlanuserfirsturl" type="string"/>
+        </portal-urlargs-config>
+        <acl type="object">
+          <free type="object">
+            <ip4 maxitems="64" type="array">
+              <item-type>ipv4_address</item-type>
+            </ip4>
+            <host maxitems="16" type="array">
+              <item-type>string</item-type>
+            </host>
+          </free>
+          <deny type="object">
+            <ip4 maxitems="64" type="array">
+              <item-type>ipv4_address</item-type>
+              <default>1.1.1.1</default>
+              <default>2.2.2.2</default>
+            </ip4>
+            <host maxitems="16" type="array">
+              <item-type>string</item-type>
+            </host>
+          </deny>
+        </acl>
+      </agentargs>
+    </interface>
+    <route type="list">
+      <enabled default="false" show="true"/>
+      <name default="" range="1..32" required="true" show="true" type="string"/>
+      <interface default="" range="3..16" required="true" show="true" type="string"/>
+      <dstnet default="0.0.0.0" required="true" show="true" type="ipv4_address"/>
+      <netmask default="0.0.0.0" required="true" show="true" type="ipv4_address"/>
+      <gateway default="0.0.0.0" required="true" show="true" type="ipv4_address"/>
+      <metric default="0" range="0..999" required="true" show="true" type="number"/>
+      <mtu default="0" range="0..9000" required="true" show="true" type="number"/>
+    </route>
+    <trafficcontrol type="list">
+      <enabled default="false" show="true"/>
+      <interface default="" range="3..16" required="true" show="true" type="string"/>
+      <egress required="true" show="true" type="object">
+        <speed default="0" range="1..1024000" type="number"/>
+      </egress>
+      <ingress required="true" show="true" type="object">
+        <speed default="0" range="1..1024000" type="number"/>
+      </ingress>
+    </trafficcontrol>
+    <switch type="list">
+      <name default=" " range="1..32" required="true" show="true" type="string"/>
+      <mtu default="0" range="0..9000" required="true" show="true" type="number"/>
+      <mode default="system" show="true" type="choice">
+        <option value="ovs">
+          <vport type="object">
+            <portname default="" range="3..16" required="true" show="true" type="string"/>
+            <portnumber default="" range="1..9999999" required="true" show="true" type="number"/>
+            <is-wifi default="false" show="true" type="boolean"/>
+            <radio-index default="0" range="0..1" required="true" show="true" type="number"/>
+            <ssid default="" range="1..32" required="true" show="true" type="string"/>
+            <vlan-type default="trunk" show="true" type="choice">
+              <option>trunk</option>
+              <option>access</option>
+            </vlan-type>
+            <vlan-id default="0" item_range="0..4095" required="true" show="true" type="string">
+              <item-type>number</item-type>
+            </vlan-id>
+            <vlan-id default="0" range="0..4095" required="true" show="true" type="number"/>
+            <port-type default="default" show="true" type="choice">
+              <option>default</option>
+              <option>internal</option>
+              <option>vxlan</option>
+            </port-type>
+            <vni default="0" range="0..16777215" required="true" show="true" type="number"/>
+            <remote-ip default="0.0.0.0" show="true" type="ipv4_address"/>
+          </vport>
+        </option>
+        <option value="system">
+          <vport type="object">
+            <portname default="" range="3..16" required="true" show="true" type="string"/>
+            <vlan-id default="0" range="0..4095" required="true" show="true" type="number"/>
+            <is-wifi default="false" show="true" type="boolean"/>
+            <radio-index default="0" range="0..1" required="true" show="true" type="number"/>
+            <ssid default="" range="1..32" required="true" show="true" type="string"/>
+          </vport>
+        </option>
+      </mode>
+    </switch>
+  </network>
+  <wireless>
+    <scenario>ptmp</scenario>
+    <countrycode default="US"/>
+    <bandsteering required="true" show="true" type="object">
+      <enabled default="false" type="boolean"/>
+      <mode default="balanced" type="choice">
+        <option>balanced</option>
+        <option>prefer5g</option>
+      </mode>
+    </bandsteering>
+    <radio>
+      <antennacount default="2" show="true"/>
+      <ifname default="wifi0" show="true"/>
+      <ifindex default="0" show="true"/>
+      <enabled default="true" show="true"/>
+      <maxssid default="8" show="true"/>
+      <frequence default="2.4G" show="true"/>
+      <ieeemode default="802.11n" show="true" type="choice">
+        <option>802.11n</option>
+        <option>802.11bgn</option>
+      </ieeemode>
+      <channel default="10" show="true"/>
+      <htmode default="20" show="true" type="choice">
+        <option>20</option>
+        <option>40</option>
+        <option>80</option>
+      </htmode>
+      <antennagain default="9" show="true"/>
+      <txpower default="20" range="1..26" required="true" show="true" type="number"/>
+      <board-power default="20" range="1..26" required="true" show="false" type="number"/>
+      <advance default="true" show="true">
+        <visible>false</visible>
+      </advance>
+      <fragmentation required="true" show="true" type="object">
+        <enabled>false</enabled>
+        <size default="256" range="1..2346"/>
+      </fragmentation>
+      <rts required="true" show="true" type="object">
+        <enabled>false</enabled>
+        <size default="256" range="1..2346"/>
+      </rts>
+      <acktimeout default="100" range="64..512" required="true" show="true" type="number"/>
+      <atpc default="true" show="true"/>
+      <bawinsize default="10" range="1..64" show="true" type="number"/>
+      <prohibited default="false" show="true"/>
+      <amsdu default="true" show="true"/>
+      <wjet show="true" type="choice">
+        <option>auto</option>
+        <option>ipollv2</option>
+        <option>ipollv3</option>
+        <enabled>false</enabled>
+        <version>auto</version>
+      </wjet>
+      <dfs default="false" show="true"/>
+      <vap type="list">
+        <enabled default="true" show="true"/>
+        <vlanid default="0" range="0..4095" type="number"/>
+        <pre-ifname default="ath" range="1..6" required="false" show="true" type="string">
+          <readonly>true</readonly>
+        </pre-ifname>
+        <mode default="ap" show="true" type="choice">
+          <option>ap</option>
+          <option>sta</option>
+          <option>monitor</option>
+        </mode>
+        <wds default="false" show="false"/>
+        <essid default="Infinity" range="1..32" required="true" show="true" type="string"/>
+        <hidden default="false" required="true" show="true"/>
+        <bssid required="true" show="true" type="object">
+          <enabled>false</enabled>
+          <value default="00:00:00:00:00:00" type="mac_address"/>
+        </bssid>
+        <macaddr required="true" show="true" type="object">
+          <enabled>false</enabled>
+          <value default="00:00:00:00:00:00" type="mac_address"/>
+        </macaddr>
+        <agentargs required="false" show="true" type="object">
+          <enabled default="true" type="boolean"/>
+          <idletimeout default="30" range="0..4294967295" type="number"/>
+          <accttimeout default="60" range="0..4294967295" type="number"/>
+          <portal-ip-type default="real" type="choice">
+            <option>real</option>
+            <option>virtual</option>
+          </portal-ip-type>
+          <portal show="true" type="object">
+            <nasaddr default="0.0.0.0" type="ipv4_address"/>
+            <prtipaddr default="1.1.1.1" type="ipv4_address"/>
+            <prturl default="" range="1..1024" type="string"/>
+          </portal>
+          <acl type="object">
+            <free type="object">
+              <ip4 maxitems="64" type="array">
+                <item-type>ipv4_address</item-type>
+              </ip4>
+              <host maxitems="16" type="array">
+                <item-type>string</item-type>
+              </host>
+            </free>
+            <deny type="object">
+              <ip4 maxitems="64" type="array">
+                <item-type>ipv4_address</item-type>
+                <default>1.1.1.1</default>
+                <default>2.2.2.2</default>
+              </ip4>
+              <host maxitems="16" type="array">
+                <item-type>string</item-type>
+              </host>
+            </deny>
+          </acl>
+        </agentargs>
+        <isolate default="true" show="true"/>
+        <wmm default="true" show="true"/>
+        <ssid2vlan required="false" show="true" type="object">
+          <enabled default="false" type="boolean"/>
+          <id default="10" range="0..4095" type="number"/>
+        </ssid2vlan>
+        <maxclients default="0" range="0..64" type="number"/>
+        <minsignal default="0" range="-100..-50" type="number"/>
+        <rate show="false" type="object">
+          <legacy default="auto" type="choice">
+            <option>auto</option>
+            <option>1</option>
+            <option>2</option>
+            <option>5.5</option>
+            <option>6</option>
+            <option>9</option>
+            <option>11</option>
+            <option>12</option>
+            <option>18</option>
+            <option>24</option>
+            <option>36</option>
+            <option>48</option>
+            <option>54</option>
+          </legacy>
+          <mcs default="auto" type="choice">
+            <option>auto</option>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+          </mcs>
+        </rate>
+        <management required="false" show="false" type="object">
+          <enabled default="false" show="true"/>
+          <tagged default="true" show="true"/>
+          <id default="0" range="0..4095"/>
+        </management>
+        <cwm default="false" show="false"/>
+        <shortgi default="false" show="false"/>
+        <mcastenhance default="false" show="false"/>
+        <trafficcontrol required="false" show="true" type="object">
+          <enabled default="false" show="true"/>
+          <egress show="true" type="object">
+            <enabled default="true" show="true"/>
+            <speed default="0" range="0..1024000" type="number"/>
+          </egress>
+          <ingress show="true" type="object">
+            <enabled default="true" show="true"/>
+            <speed default="0" range="0..1024000" type="number"/>
+          </ingress>
+        </trafficcontrol>
+        <macacl show="true" type="object">
+          <enabled default="false" show="true"/>
+          <policy default="open" show="true" type="choice">
+            <option>open</option>
+            <option>allow</option>
+            <option>deny</option>
+          </policy>
+          <mac-list maxitems="64" type="array">
+            <item-type>mac_address</item-type>
+          </mac-list>
+        </macacl>
+        <security show="true" type="object">
+          <mode default="open" show="true" type="choice">
+            <option>open</option>
+            <option>wep</option>
+            <option>psk</option>
+            <option>enterprise</option>
+          </mode>
+          <wpacomb default="" show="true" type="choice">
+            <option></option>
+            <option>wpa</option>
+            <option>wpa2</option>
+            <option>mixed</option>
+          </wpacomb>
+          <encryption default="" show="true" type="choice">
+            <option></option>
+            <option>auto</option>
+            <option>tkip</option>
+            <option>aes</option>
+            <option>mixed</option>
+          </encryption>
+          <encryption type="object">
+            <passphrase default="" range="8..63" type="string"/>
+          </encryption>
+          <wep type="object">
+            <length default="" show="false" type="string"/>
+            <index default="1" range="1..4" show="false" type="number"/>
+            <key default="" range="1..32" show="false" type="string"/>
+          </wep>
+          <wpaenterprise type="object">
+            <authentication type="object">
+              <servers type="array">
+                <item-type>object</item-type>
+                <secret default="" range="1..16" type="string"/>
+                <port default="1812" range="1..65535" type="number"/>
+                <address default="" show="true" type="ipv4_address"/>
+              </servers>
+            </authentication>
+            <accounting type="object">
+              <servers type="array">
+                <item-type>object</item-type>
+                <secret default="" range="1..16" type="string"/>
+                <port default="1813" range="1..65535" type="number"/>
+                <address default="" show="true" type="ipv4_address"/>
+              </servers>
+              <enabled default="false" type="bool"/>
+            </accounting>
+            <das type="object">
+              <enabled default="false" type="boolean"/>
+              <clientip default="0.0.0.0" type="ipv4_address"/>
+              <port default="3799" type="number"/>
+              <secret default="" range="1..16" type="string"/>
+            </das>
+            <eap type="object">
+              <method default="eap-tls" type="choice">
+                <option>eap-tls</option>
+                <option>eap-ttls</option>
+                <option>eap-sim/aka</option>
+                <option>eap-peap</option>
+                <option>eap-pwd</option>
+              </method>
+              <identity default="" range="1..16" type="string"/>
+              <password default="" range="1..16" type="string"/>
+            </eap>
+          </wpaenterprise>
+        </security>
+      </vap>
+    </radio>
+    <radio>
+      <antennacount default="2" show="true"/>
+      <ifname default="wifi3" show="true"/>
+      <ifindex default="1" show="true"/>
+      <enabled default="true" show="true"/>
+      <maxssid default="8" show="true"/>
+      <frequence default="5.8G" show="true"/>
+      <ieeemode default="802.11a" show="true" type="choice">
+        <option>802.11a</option>
+        <option>802.11ac</option>
+      </ieeemode>
+      <channel default="36" show="true"/>
+      <htmode default="20" show="true" type="choice">
+        <option>20</option>
+        <option>40+</option>
+        <option>40-</option>
+      </htmode>
+      <antennagain default="9" show="true"/>
+      <txpower default="18" range="1..26" required="true" show="true" type="number"/>
+      <board-power default="18" range="1..26" required="true" show="false" type="number"/>
+      <advance default="true" show="true">
+        <visible>false</visible>
+      </advance>
+      <fragmentation required="true" show="true" type="object">
+        <enabled>false</enabled>
+        <size default="256" range="1..2346"/>
+      </fragmentation>
+      <rts show="true" type="object">
+        <enabled>false</enabled>
+        <size default="256" range="1..2346"/>
+      </rts>
+      <acktimeout default="100" range="64..512" show="true" type="number"/>
+      <atpc default="true" show="true"/>
+      <bawinsize default="10" range="1..64" show="true" type="number"/>
+      <prohibited default="false" show="true"/>
+      <amsdu default="true" show="true"/>
+      <wjet show="true" type="choice">
+        <option>auto</option>
+        <option>ipollv2</option>
+        <option>ipollv3</option>
+        <enabled>false</enabled>
+        <version>auto</version>
+      </wjet>
+      <dfs default="false" show="true"/>
+      <vap type="list">
+        <enabled default="false" show="true"/>
+        <vlanid default="0" range="0..4095" type="number"/>
+        <pre-ifname default="ath" range="1..6" required="false" show="true" type="string">
+          <readonly>true</readonly>
+        </pre-ifname>
+        <mode default="ap" show="true" type="choice">
+          <option>ap</option>
+          <option>sta</option>
+          <option>monitor</option>
+        </mode>
+        <wds default="false" show="false"/>
+        <essid default="Infinity" range="1..32" required="true" show="true" type="string"/>
+        <hidden default="false" required="true" show="true"/>
+        <bssid required="true" show="true" type="object">
+          <enabled>false</enabled>
+          <value default="00:00:00:00:00:00" type="mac_address"/>
+        </bssid>
+        <macaddr required="true" show="true" type="object">
+          <enabled>false</enabled>
+          <value default="00:00:00:00:00:00" type="mac_address"/>
+        </macaddr>
+        <agentargs required="false" show="true" type="object">
+          <enabled default="true" type="boolean"/>
+          <idletimeout default="30" range="0..4294967295" type="number"/>
+          <accttimeout default="60" range="0..4294967295" type="number"/>
+          <portal-ip-type default="real" type="choice">
+            <option>real</option>
+            <option>virtual</option>
+          </portal-ip-type>
+          <portal show="true" type="object">
+            <nasaddr default="0.0.0.0" type="ipv4_address"/>
+            <prtipaddr default="1.1.1.1" type="ipv4_address"/>
+            <prturl default="" range="1..1024" type="string"/>
+          </portal>
+          <acl type="object">
+            <free type="object">
+              <ip4 maxitems="64" type="array">
+                <item-type>ipv4_address</item-type>
+              </ip4>
+              <host maxitems="16" type="array">
+                <item-type>string</item-type>
+              </host>
+            </free>
+            <deny type="object">
+              <ip4 maxitems="64" type="array">
+                <item-type>ipv4_address</item-type>
+                <default>1.1.1.1</default>
+                <default>2.2.2.2</default>
+              </ip4>
+              <host maxitems="16" type="array">
+                <item-type>string</item-type>
+              </host>
+            </deny>
+          </acl>
+        </agentargs>
+        <isolate default="true" show="true"/>
+        <wmm default="true" show="true"/>
+        <ssid2vlan required="false" show="true" type="object">
+          <enabled default="false" type="boolean"/>
+          <id default="10" range="0..4095" type="number"/>
+        </ssid2vlan>
+        <maxclients default="0" range="0..64" type="number"/>
+        <minsignal default="0" range="-100..-50" type="number"/>
+        <rate show="false" type="object">
+          <legacy default="auto" type="choice">
+            <option>auto</option>
+            <option>1</option>
+            <option>2</option>
+            <option>5.5</option>
+            <option>6</option>
+            <option>9</option>
+            <option>11</option>
+            <option>12</option>
+            <option>18</option>
+            <option>24</option>
+            <option>36</option>
+            <option>48</option>
+            <option>54</option>
+          </legacy>
+          <mcs default="auto" type="choice">
+            <option>auto</option>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+          </mcs>
+        </rate>
+        <management required="false" show="false" type="object">
+          <enabled default="false" show="true"/>
+          <tagged default="true" show="true"/>
+          <id default="0" range="0..4095"/>
+        </management>
+        <cwm default="false" show="false"/>
+        <shortgi default="false" show="false"/>
+        <mcastenhance default="false" show="false"/>
+        <trafficcontrol required="false" show="true" type="object">
+          <enabled default="false" show="true"/>
+          <egress show="true" type="object">
+            <enabled default="true" show="true"/>
+            <speed default="0" range="0..1024000" type="number"/>
+          </egress>
+          <ingress show="true" type="object">
+            <enabled default="true" show="true"/>
+            <speed default="0" range="0..1024000" type="number"/>
+          </ingress>
+        </trafficcontrol>
+        <macacl show="true" type="object">
+          <enabled default="false" show="true"/>
+          <policy default="open" show="true" type="choice">
+            <option>open</option>
+            <option>allow</option>
+            <option>deny</option>
+          </policy>
+          <mac-list maxitems="64" type="array">
+            <item-type>mac_address</item-type>
+          </mac-list>
+        </macacl>
+        <security show="true" type="object">
+          <mode default="open" show="true" type="choice">
+            <option>open</option>
+            <option>wep</option>
+            <option>psk</option>
+            <option>enterprise</option>
+          </mode>
+          <wpacomb default="" show="true" type="choice">
+            <option></option>
+            <option>wpa</option>
+            <option>wpa2</option>
+            <option>mixed</option>
+          </wpacomb>
+          <encryption default="" show="true" type="choice">
+            <option></option>
+            <option>auto</option>
+            <option>tkip</option>
+            <option>aes</option>
+            <option>mixed</option>
+          </encryption>
+          <wpapsk type="object">
+            <passphrase default="" range="8..63" type="string"/>
+          </wpapsk>
+          <wep type="object">
+            <length default="" show="false" type="string"/>
+            <index default="1" range="1..4" show="false" type="number"/>
+            <key default="" range="1..32" show="false" type="string"/>
+          </wep>
+          <wpaenterprise type="object">
+            <authentication type="object">
+              <servers type="array">
+                <item-type>object</item-type>
+                <secret default="" range="1..16" type="string"/>
+                <port default="1812" range="1..65535" type="number"/>
+                <address default="" show="true" type="ipv4_address"/>
+              </servers>
+            </authentication>
+            <accounting type="object">
+              <servers type="object">
+                <item-type>object</item-type>
+                <secret default="" range="1..16" type="string"/>
+                <port default="1813" range="1..65535" type="number"/>
+                <address default="" show="true" type="ipv4_address"/>
+              </servers>
+              <enabled default="false" type="bool"/>
+            </accounting>
+            <das type="object">
+              <enabled default="false" type="boolean"/>
+              <clientip default="0.0.0.0" type="ipv4_address"/>
+              <port default="3799" type="number"/>
+              <secret default="" range="1..16" type="string"/>
+            </das>
+            <eap type="object">
+              <method default="eap-tls" type="choice">
+                <option>eap-tls</option>
+                <option>eap-ttls</option>
+                <option>eap-sim/aka</option>
+                <option>eap-peap</option>
+                <option>eap-pwd</option>
+              </method>
+              <identity default="" range="1..16" type="string"/>
+              <password default="" range="1..16" type="string"/>
+            </eap>
+          </wpaenterprise>
+        </security>
+      </vap>
+    </radio>
+  </wireless>
+  <iot>
+    <lora>
+      <server-ip default="1.1.1.1" required="true" type="ipv4_address"/>
+      <server-port default="8099" range="1..65535" required="true" show="true" type="number"/>
+      <lora-enabled default="true" show="true" type="boolean"/>
+      <lora-txpower default="13" range="3..20" required="true" show="true" type="int"/>
+      <sx1278-mode default="lora" show="true" type="choice">
+        <option>lora</option>
+        <option>fsk</option>
+      </sx1278-mode>
+    </lora>
+  </iot>
+</device>
