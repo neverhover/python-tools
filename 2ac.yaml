@@ -19,7 +19,7 @@ device:
           key: 'uplink'
           default: true
         spec:
-          isview: true,
+          isview: true
           readonly: true
           default: true
       - ifname:
@@ -35,7 +35,7 @@ device:
           key: 'uplink'
           default: false
         spec:
-          isview: true,
+          isview: true
           readonly: true
           default: true
     interface:
@@ -44,3 +44,21 @@ device:
           key: iftype2
           type: string
           default: ethernet
+  wireless:
+    radio:
+      -
+        vap:
+          enabled:
+            default: true
+      -
+        !Monster
+        name: Cave spider
+        hp: [2,6]    # 2d6
+        ac: 16
+        attacks: [BITE, HURT]
+        txpower:
+          default: 100
+      -
+        !Radio
+        txpower:
+          default: 90

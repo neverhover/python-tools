@@ -13,4 +13,9 @@ context.update(user)
 print(context)
 
 my_dict = {'key': 'iftype', 'type': 'string', 'default': 'ethernet'}
-my_dict
+patten = re.compile(r'\$schema:(\w+)')
+matchObj = re.search(patten, "$schema:vvvap")
+if matchObj:
+    print("Matched ", matchObj.group(1))
+else:
+    print("Not match")

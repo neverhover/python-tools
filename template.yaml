@@ -5,6 +5,7 @@ device:
     type: 'undefined'
     boardname: 'undefined'
     product-name: 'undefined'
+    abc: &ccc
 
   system:
   network:
@@ -20,7 +21,10 @@ device:
     radio:
       -
         vap:
-
+      -
+        txpower:
+          default: 10
+          key: txpower
 
   app:
   iot:

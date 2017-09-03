@@ -1,0 +1,14 @@
+antennacount:
+  key: "antennacount"
+  default: 2
+  type: number
+  spec:
+    show: true
+    readonly: true
+maxssid:
+  key: "maxssid"
+  default: 8
+  type: number
+  spec:
+    show: true
+    readonly: true
