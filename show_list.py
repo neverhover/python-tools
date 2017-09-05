@@ -19,3 +19,6 @@ if matchObj:
     print("Matched ", matchObj.group(1))
 else:
     print("Not match")
+
+test_dict = {'wireless': {'max-radios': 3}}
+print(test_dict.get('wirelessss',{}).get('max-radio'))

@@ -1,11 +1,11 @@
 {
-  "xml-ver": "v1.4.2",
+  "ver": "v1.4.2",
   "hardware": {
-    "prefix-name": "NatShell",
+    "prefix-name": "null",
     "type": "AP",
-    "boardname": "ns-8-pw3",
-    "product-name": "ns-8-pw3",
-    "firmware": "V4.6.0"
+    "boardname": "null",
+    "product-name": "null",
+    "firmware": "null"
   },
   "system": {
     "tun_syslog": {
@@ -169,7 +169,21 @@
           }
         }
       }
-    ]
+    ],
+    "management": {
+      "service": {
+        "http": {
+          "enabled": true,
+          "port": "80",
+          "password": "admin"
+        },
+        "ssh": {
+          "enabled": true,
+          "port": "22",
+          "password": "adminadminadmin"
+        }
+      }
+    }
   },
   "network": {
     "ethernet": [
